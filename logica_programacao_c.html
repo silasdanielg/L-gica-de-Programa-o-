@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lógica de Programação em C</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;line-height:1.6}
+header{padding:60px 20px;text-align:center;background:linear-gradient(135deg,#111827,#1e3a8a)}
+header h1{font-size:clamp(2rem,6vw,4rem);margin:0 0 10px}header p{margin:0;color:#cbd5e1;font-size:1.1rem}
+nav{position:sticky;top:0;background:#111827dd;backdrop-filter:blur(10px);padding:12px;text-align:center;border-bottom:1px solid #334155;z-index:2}
+nav a{color:#93c5fd;text-decoration:none;margin:0 8px;font-size:.9rem}nav a:hover{color:white}
+main{max-width:1000px;margin:auto;padding:30px 18px}
+section{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:24px;margin:22px 0;box-shadow:0 8px 25px #0003}
+h2{color:#60a5fa;margin-top:0}h3{color:#bfdbfe}
+code{font-family:Consolas,monospace}
+pre{background:#020617;border:1px solid #334155;padding:18px;border-radius:12px;overflow:auto;color:#dbeafe}
+.inline{background:#0f172a;padding:2px 6px;border-radius:5px;color:#93c5fd}
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:12px;border-bottom:1px solid #475569;text-align:left}th{color:#93c5fd}
+.flow{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:20px 0}.box{padding:15px 20px;background:#2563eb;border-radius:10px;font-weight:bold}.arrow{font-size:1.5rem;color:#93c5fd}
+footer{text-align:center;padding:30px;color:#94a3b8}
+</style>
+</head>
+<body>
+<header>
+<h1>🧠 Lógica de Programação em C</h1>
+<p>Guia básico para quem está começando a programar</p>
+</header>
+<nav>
+<a href="#logica">Lógica</a><a href="#estrutura">Estrutura</a><a href="#variaveis">Variáveis</a><a href="#entrada">Entrada</a><a href="#condicoes">Condições</a><a href="#loops">Repetições</a><a href="#funcoes">Funções</a><a href="#arrays">Arrays</a>
+</nav>
+<main>
+<section id="logica">
+<h2>1. O que é lógica de programação?</h2>
+<p>É a forma de organizar um problema em passos para que o computador consiga resolvê-lo.</p>
+<p><strong>Exemplo:</strong> pedir dois números → somá-los → mostrar o resultado.</p>
+<div class="flow"><div class="box">Entrada</div><div class="arrow">→</div><div class="box">Processamento</div><div class="arrow">→</div><div class="box">Saída</div></div>
+</section>
+
+<section id="estrutura">
+<h2>2. Estrutura básica de um programa C</h2>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Olá, mundo!");
+
+    return 0;
+}</code></pre>
+<ul>
+<li><code class="inline">#include &lt;stdio.h&gt;</code> permite usar funções como <code class="inline">printf</code> e <code class="inline">scanf</code>.</li>
+<li><code class="inline">main()</code> é onde o programa começa.</li>
+<li><code class="inline">printf()</code> mostra informações na tela.</li>
+<li><code class="inline">return 0</code> indica que o programa terminou normalmente.</li>
+</ul>
+</section>
+
+<section id="variaveis">
+<h2>3. Variáveis</h2>
+<p>Variáveis armazenam informações.</p>
+<pre><code>int idade = 16;
+float altura = 1.75;
+char letra = 'A';</code></pre>
+<table><tr><th>Tipo</th><th>Armazena</th></tr><tr><td>int</td><td>Números inteiros</td></tr><tr><td>float</td><td>Números decimais</td></tr><tr><td>double</td><td>Decimais com maior precisão</td></tr><tr><td>char</td><td>Um caractere</td></tr></table>
+</section>
+
+<section id="entrada">
+<h2>4. Entrada de dados</h2>
+<p>Usamos <code class="inline">scanf()</code> para receber dados digitados pelo usuário.</p>
+<pre><code>int idade;
+
+printf("Digite sua idade: ");
+scanf("%d", &amp;idade);
+
+printf("Você tem %d anos.", idade);</code></pre>
+<table><tr><th>Formato</th><th>Tipo</th></tr><tr><td>%d</td><td>int</td></tr><tr><td>%f</td><td>float</td></tr><tr><td>%c</td><td>char</td></tr></table>
+</section>
+
+<section id="operadores">
+<h2>5. Operadores</h2>
+<h3>Matemáticos</h3>
+<pre><code>+   soma
+-   subtração
+*   multiplicação
+/   divisão
+%   resto da divisão</code></pre>
+<p>Exemplo: <code class="inline">int resultado = 10 + 5;</code></p>
+</section>
+
+<section id="condicoes">
+<h2>6. Condições — if e else</h2>
+<p>Permitem que o programa tome decisões.</p>
+<pre><code>int idade = 16;
+
+if (idade &gt;= 18) {
+    printf("Maior de idade");
+} else {
+    printf("Menor de idade");
+}</code></pre>
+<table><tr><th>Operador</th><th>Significado</th></tr><tr><td>==</td><td>Igual</td></tr><tr><td>!=</td><td>Diferente</td></tr><tr><td>&gt;</td><td>Maior</td></tr><tr><td>&lt;</td><td>Menor</td></tr><tr><td>&gt;=</td><td>Maior ou igual</td></tr><tr><td>&lt;=</td><td>Menor ou igual</td></tr></table>
+<p>⚠️ <code class="inline">=</code> atribui um valor; <code class="inline">==</code> compara valores.</p>
+</section>
+
+<section id="loops">
+<h2>7. Repetições</h2>
+<h3>for</h3>
+<pre><code>for (int i = 1; i &lt;= 5; i++) {
+    printf("%d\n", i);
+}</code></pre>
+<p>Resultado: 1, 2, 3, 4, 5.</p>
+<h3>while</h3>
+<pre><code>int i = 1;
+
+while (i &lt;= 5) {
+    printf("%d\n", i);
+    i++;
+}</code></pre>
+</section>
+
+<section id="funcoes">
+<h2>8. Funções</h2>
+<p>Funções permitem separar o programa em partes reutilizáveis.</p>
+<pre><code>int soma(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int resultado = soma(5, 3);
+
+    printf("%d", resultado);
+
+    return 0;
+}</code></pre>
+<p>A função <code class="inline">soma()</code> recebe dois números e retorna o resultado.</p>
+</section>
+
+<section id="arrays">
+<h2>9. Arrays</h2>
+<p>Arrays armazenam vários valores em uma única variável.</p>
+<pre><code>int numeros[5] = {10, 20, 30, 40, 50};
+
+printf("%d", numeros[0]);</code></pre>
+<p>⚠️ A contagem começa em <strong>0</strong>:</p>
+<pre><code>numeros[0] → 10
+numeros[1] → 20
+numeros[2] → 30
+numeros[3] → 40
+numeros[4] → 50</code></pre>
+</section>
+
+<section>
+<h2>10. Exemplo completo</h2>
+<p>Um programa que recebe dois números, soma e mostra o resultado:</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, soma;
+
+    printf("Digite dois números: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    soma = a + b;
+
+    printf("Resultado: %d", soma);
+
+    return 0;
+}</code></pre>
+</section>
+
+<section>
+<h2>📌 Resumo para memorizar</h2>
+<p><strong>Variáveis</strong> → guardam informações.</p>
+<p><strong>printf</strong> → mostra informações.</p>
+<p><strong>scanf</strong> → recebe informações.</p>
+<p><strong>Operadores</strong> → fazem cálculos e comparações.</p>
+<p><strong>if / else</strong> → tomam decisões.</p>
+<p><strong>for / while</strong> → repetem comandos.</p>
+<p><strong>funções</strong> → organizam e reutilizam código.</p>
+<p><strong>arrays</strong> → guardam vários valores.</p>
+</section>
+</main>
+<footer>Guia básico de Lógica de Programação em C • Feito para estudo</footer>
+</body>
+</html>
